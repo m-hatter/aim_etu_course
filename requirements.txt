@@ -1,0 +1,4 @@
+owlready2
+gymnasium
+pygame
+scikit-fuzzy
