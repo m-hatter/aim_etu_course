@@ -72,11 +72,6 @@ class ContinuousCartPoleEnv(gym.Env[np.ndarray, Union[int, np.ndarray]]):
 
     ## Arguments
 
-    ```python
-    import gymnasium as gym
-    gym.make('CartPole-v1')
-    ```
-
     On reset, the `options` parameter allows the user to change the bounds used to determine
     the new random state.
     """
@@ -137,7 +132,6 @@ class ContinuousCartPoleEnv(gym.Env[np.ndarray, Union[int, np.ndarray]]):
         ), f"{action!r} ({type(action)}) invalid"
         assert self.state is not None, "Call reset before using step method."
         x, x_dot, theta, theta_dot = self.state
-        # force = self.force_mag if action == 1 else -self.force_mag
         force = self.force_mag * action[0]
         costheta = math.cos(theta)
         sintheta = math.sin(theta)
