@@ -5,6 +5,7 @@ This code is taken from https://github.com/aimacode/aima-python repository,
 official repository of the AIMA book. In particular, it is a subset of
 https://github.com/aimacode/aima-python/blob/master/search4e.ipynb notebook.
 """
+import sys
 import heapq
 import math
 from collections import defaultdict, deque, Counter
