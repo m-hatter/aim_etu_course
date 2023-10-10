@@ -18,6 +18,11 @@ $ conda install torch torchvision -c torch
 
 Для выполнения лабораторной работы № 3 понадобятся:
 
+Какой-нибудь редактор байесовских сетей. Рекомендую [GeNIe от BayesFusion](https://download.bayesfusion.com/files.html?category=Academia) - 
+он очень функциональный и доступна бесплатная академическая версия.
+
+Следующие библиотеки для Python:
+
 - Gymnasium
 - PyGame
 - scikit-fuzzy
