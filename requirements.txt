@@ -2,3 +2,7 @@ owlready2
 gymnasium
 pygame
 scikit-fuzzy
+scikit-learn
+natasha
+torch
+torchvision
