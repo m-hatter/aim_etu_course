@@ -22,8 +22,8 @@ def train(model,
         total_batches = 0
         for X, y in tqdm(train_data_loader) if verbose else train_data_loader:
             optimizer.zero_grad()
-            y_hat = model(X.to(device))
-            loss = loss_fn(y_hat.reshape_as(y), y.to(torch.float32).to(device))
+            y_hat = model(X.to(device)).reshape_as(y)
+            loss = loss_fn(y_hat, y.to(torch.float32).to(device))
             loss.backward()
             optimizer.step()
             # Сбор значений метрик
@@ -44,8 +44,8 @@ def train(model,
         total_batches = 0
         with torch.no_grad():
             for X, y in val_data_loader:
-                y_hat = model(X.to(device))
-                loss = loss_fn(y_hat.reshape_as(y), y.to(torch.float32).to(device))
+                y_hat = model(X.to(device)).reshape_as(y)
+                loss = loss_fn(y_hat, y.to(torch.float32).to(device))
                 # Сбор значений метрик
                 y_hat = y_hat.detach().to('cpu')
                 for metric_name, metric_foo in collect_metrics:
@@ -133,7 +133,7 @@ def accuracy(model, loader):
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     for x, y in loader:
         x = x.to(device)
-        y_hat = model(x).to('cpu') > 0.5
+        y_hat = (model(x).to('cpu') > 0.5).reshape_as(y)
         accum += (y == y_hat).to(torch.float32).mean().item()
         n += 1
     return accum / n
