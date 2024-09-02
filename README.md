@@ -5,12 +5,17 @@
 Рекомендуется следующий способ создания Python-окружения для выполнения лабораторных работ:
 
 ```
-$ conda create -n aim python=3.9
+$ conda create -n aim python=3.11
 $ conda activate aim
 $ conda install jupyter matplotlib numpy owlready2 gymnasium pygame scikit-fuzzy scikit-learn
-$ conda install torch torchvision -c torch
+$ conda install pytorch torchvision cpuonly -c pytorch
 $ pip install natasha
 ```
+
+Внимание! Код выше предполагает, что PyTorch не будет доступен графический ускоритель (`cpuonly`), этот вариант будет работать
+на любом компьютере и подойдет для ознакомления с основными возможностями библиотеки, однако обучение нейронных сетей в рамках
+лабораторных работ 4 и 5 будет *очень* медленным. Если на вашем компьютере есть графический ускоритель, поддерживающий CUDA,
+то вместо `cpuonly` следует указать совместимую версию CUDA (см. [инструкцию по установке PyTorch](https://pytorch.org/)).
 
 Для выполнения лабораторной работы № 2 по онтологиям необходимо установить редактор онтологий Protege (https://protege.stanford.edu/).
 На сайте предлагается web-версия редактора, однако она очень урезана и не позволяет выполнить все задания лабораторной.
