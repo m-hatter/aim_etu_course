@@ -1,5 +1,5 @@
 owlready2
-gymnasium==0.29.1
+gymnasium
 pygame
 scikit-fuzzy
 scikit-learn

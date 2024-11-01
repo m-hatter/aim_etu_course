@@ -7,7 +7,7 @@
 ```
 $ conda create -n aim python=3.11
 $ conda activate aim
-$ conda install jupyter matplotlib numpy owlready2 gymnasium=0.29.1 pygame scikit-fuzzy scikit-learn
+$ conda install jupyter matplotlib numpy owlready2 gymnasium pygame scikit-fuzzy scikit-learn
 $ conda install pytorch torchvision cpuonly -c pytorch
 $ pip install natasha
 ```
